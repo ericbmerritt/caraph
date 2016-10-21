@@ -1,0 +1,22 @@
+dependencies:
+   pre:
+     - ./bin/provision-ci.sh
+
+   cache_directories:
+     - "~/.ivy2"
+     - "~/.sbt"
+
+test:
+   override:
+     - sbt clean
+     - sbt scalastyle
+     - sbt scalafmtTest
+     - sbt coverage test
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - sbt coverageReport
+      - sbt coverageAggregate
+      - sbt codacyCoverage
