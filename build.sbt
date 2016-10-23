@@ -18,6 +18,10 @@ scalacOptions := Seq("-unchecked",
                      "-Xlint")
 scalacOptions in Test ++= Seq("-Yrangepos")
 
+libraryDependencies += "org.typelevel" %% "cats" % "0.7.2"
+
+libraryDependencies += "org.parboiled" %% "parboiled" % "2.1.3"
+
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "2.2.5" % "test" withSources () withJavadoc (),
   "org.scalacheck" %% "scalacheck" % "1.13.3" % "test" withSources () withJavadoc ()
